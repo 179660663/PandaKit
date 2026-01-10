@@ -3,7 +3,8 @@ package starter
 import (
 	"database/sql"
 	"github.com/sirupsen/logrus"
-	"gorm.io/driver/sqlite"
+	//"gorm.io/driver/sqlite"
+	"github.com/glebarez/sqlite" // 纯Go实现的SQLite驱动,无需cgo【GORM官方推荐替代方案】
 	"time"
 
 	"gorm.io/driver/mysql"

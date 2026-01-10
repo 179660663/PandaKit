@@ -1,4 +1,4 @@
-module github.com/PandaXGO/PandaKit
+module github.com/179660663/PandaKit
 
 go 1.19
 
@@ -7,13 +7,12 @@ require (
 	github.com/gorilla/websocket v1.4.2
 	golang.org/x/crypto v0.23.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1
-	gorm.io/gorm v1.25.7-0.20240204074919-46816ad31dde
+	gorm.io/gorm v1.25.7
 )
 
 require (
 	github.com/aliyun/alibaba-cloud-sdk-go v1.61.1443
 	github.com/aliyun/aliyun-oss-go-sdk v2.2.0+incompatible
-	github.com/baiyubin/aliyun-sts-go-sdk v0.0.0-20180326062324-cfa1a18b161f // indirect
 	github.com/casbin/casbin/v2 v2.37.4
 	github.com/casbin/gorm-adapter/v3 v3.4.6
 	github.com/golang/protobuf v1.5.2 // indirect
@@ -36,7 +35,9 @@ require (
 )
 
 require (
+	github.com/PandaXGO/PandaKit v0.0.0-20250911124639-5fc775573349
 	github.com/emicklei/go-restful/v3 v3.9.0
+	github.com/glebarez/sqlite v1.11.0
 	github.com/go-playground/validator/v10 v10.20.0
 	github.com/golang-jwt/jwt/v5 v5.2.1
 	github.com/gorilla/schema v1.2.0
@@ -44,7 +45,6 @@ require (
 	github.com/redis/go-redis/v9 v9.7.3
 	golang.org/x/oauth2 v0.0.0-20220822191816-0ebed06d0094
 	golang.org/x/text v0.15.0
-	gorm.io/driver/sqlite v1.5.6
 )
 
 require (
@@ -58,9 +58,10 @@ require (
 	github.com/cloudwego/iasm v0.2.0 // indirect
 	github.com/denisenkom/go-mssqldb v0.11.0 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
-	github.com/dustin/go-humanize v1.0.0 // indirect
+	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.3 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
+	github.com/glebarez/go-sqlite v1.21.2 // indirect
 	github.com/go-ole/go-ole v1.2.5 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
@@ -89,6 +90,7 @@ require (
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
 	github.com/pelletier/go-toml/v2 v2.2.2 // indirect
+	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
 	github.com/richardlehane/mscfb v1.0.3 // indirect
 	github.com/richardlehane/msoleps v1.0.1 // indirect
 	github.com/rs/xid v1.4.0 // indirect
@@ -101,6 +103,11 @@ require (
 	golang.org/x/sync v0.1.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	gopkg.in/ini.v1 v1.66.6 // indirect
+	gorm.io/driver/sqlite v1.5.6 // indirect
 	gorm.io/driver/sqlserver v1.2.1 // indirect
 	gorm.io/plugin/dbresolver v1.1.0 // indirect
+	modernc.org/libc v1.22.5 // indirect
+	modernc.org/mathutil v1.5.0 // indirect
+	modernc.org/memory v1.5.0 // indirect
+	modernc.org/sqlite v1.23.1 // indirect
 )
