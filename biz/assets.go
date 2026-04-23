@@ -2,8 +2,9 @@ package biz
 
 import (
 	"fmt"
-	"github.com/PandaXGO/PandaKit/utils"
 	"reflect"
+
+	"github.com/179660663/PandaKit/utils"
 )
 
 func ErrIsNil(err error, msg string, params ...any) {
@@ -14,7 +15,7 @@ func ErrIsNil(err error, msg string, params ...any) {
 
 func ErrIsNilAppendErr(err error, msg string) {
 	if err != nil {
-		panic(NewBizErr(fmt.Sprintf(msg, err.Error())))
+		panic(NewBizErr(fmt.Sprintf("%s%s", msg, err.Error())))
 	}
 }
 

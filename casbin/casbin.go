@@ -1,9 +1,10 @@
 package casbin
 
 import (
-	"github.com/PandaXGO/PandaKit/biz"
-	"github.com/PandaXGO/PandaKit/starter"
 	"sync"
+
+	"github.com/179660663/PandaKit/biz"
+	"github.com/179660663/PandaKit/starter"
 
 	"github.com/casbin/casbin/v2"
 	gormadapter "github.com/casbin/gorm-adapter/v3"

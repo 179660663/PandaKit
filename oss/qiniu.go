@@ -2,8 +2,9 @@ package oss
 
 import (
 	"context"
-	utilFile "github.com/PandaXGO/PandaKit/file"
 	"io"
+
+	utilFile "github.com/179660663/PandaKit/file"
 
 	"github.com/pkg/errors"
 	"github.com/qiniu/go-sdk/v7/auth/qbox"

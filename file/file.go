@@ -1,7 +1,6 @@
 package utilFile
 
 import (
-	"github.com/PandaXGO/PandaKit/biz"
 	"io"
 	"mime/multipart"
 	"net/http"
@@ -9,6 +8,8 @@ import (
 	"path/filepath"
 	"strconv"
 	"sync"
+
+	"github.com/179660663/PandaKit/biz"
 )
 
 const (
