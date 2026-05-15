@@ -1,1 +1,15 @@
-package model// 分页参数type PageParam struct {	PageNum  int    `json:"pageNum" description:"当前页"`	PageSize int    `json:"pageSize" description:"每页条数"`	Params   string `json:"params" description:"参数"`}type ResultPage struct {	Total    any   `json:"total" description:"总条数"`	PageNum  int64 `json:"pageNum" description:"当前页"`	PageSize int64 `json:"pageSize" description:"每页条数"`	Data     any   `json:"data" description:"数据"`}
+package model
+
+// 分页参数
+type PageParam struct {
+	PageNum  int    `json:"pageNum" description:"当前页"`
+	PageSize int    `json:"pageSize" description:"每页条数"`
+	Params   string `json:"params" description:"参数"`
+}
+
+type ResultPage struct {
+	Total    any   `json:"total" description:"总条数"`
+	PageNum  int64 `json:"pageNum" description:"当前页"`
+	PageSize int64 `json:"pageSize" description:"每页条数"`
+	Data     any   `json:"data" description:"数据"`
+}
