@@ -2,7 +2,6 @@ package restfulx
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"strconv"
 
@@ -16,11 +15,9 @@ import (
 // 绑定并校验请求结构体参数  结构体添加 例如： validate:"required" validate:"required,gt=10"
 func BindJsonAndValid(rc *ReqCtx, data any) {
 	if err := rc.Request.ReadEntity(data); err != nil {
-		fmt.Printf("绑定错误:%s", err.Error())
 		panic(any(biz.CodeInvalidParameter))
 	}
 	if err := rc.Validate.Struct(data); err != nil {
-		fmt.Printf("校验错误:%s", err.Error())
 		panic(any(biz.CodeInvalidParameter))
 	}
 }
