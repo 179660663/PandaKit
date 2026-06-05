@@ -25,6 +25,12 @@ func InitLog(fileName, level string) *logrus.Logger {
 		Log.SetLevel(logrus.DebugLevel)
 	}
 	if fileName != "" {
+		// 创建目录
+		dir := filepath.Dir(fileName)
+		if err := os.MkdirAll(dir, 0755); err != nil {
+			panic(any(fmt.Sprintf("创建日志目录失败: %s", err.Error())))
+		}
+		// 创建日志文件
 		file, err := os.OpenFile(fileName, os.O_CREATE|os.O_APPEND|os.O_WRONLY, os.ModeAppend|0666)
 		if err != nil {
 			panic(any(fmt.Sprintf("创建日志文件失败: %s", err.Error())))
