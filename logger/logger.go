@@ -2,6 +2,7 @@ package logger
 
 import (
 	"fmt"
+	"io"
 	"os"
 	"path/filepath"
 	"strings"
@@ -10,7 +11,17 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-func InitLog(fileName, level string) *logrus.Logger {
+/**
+ * @Description: 初始化日志
+ * @param fileName 日志文件路径
+ * @param level 日志级别
+ * 				日志级别判断规则是：‌只有日志消息的级别 ≥ 当前设定级别时，才会被输出。‌
+ * 				日志级别层级关系（从低到高）：Trace < Debug < Info < Warn < Error < Fatal < Panic
+ *				info为例（Trace、Debug—— ‌不会打印‌（因为低于 Info）；Info、Warn、Error、Fatal、Panic —— ‌都会打印‌）
+ * @param out 日志输出方式 console/file/file+console
+ * @return *logrus.Logger
+ */
+func InitLog(fileName, level, out string) *logrus.Logger {
 	Log := logrus.New()
 	Log.SetFormatter(new(LogFormatter))
 	Log.SetReportCaller(true)
@@ -25,18 +36,31 @@ func InitLog(fileName, level string) *logrus.Logger {
 	} else {
 		Log.SetLevel(logrus.DebugLevel)
 	}
-	if fileName != "" {
+	var file *os.File
+	if out == "file" || out == "file+console" {
+		if fileName == "" {
+			fileName = "./logs/info.log"
+		}
 		// 创建目录
 		dir := filepath.Dir(fileName)
 		if err := os.MkdirAll(dir, 0755); err != nil {
 			panic(any(fmt.Sprintf("创建日志目录失败: %s", err.Error())))
 		}
 		// 创建日志文件
-		file, err := os.OpenFile(fileName, os.O_CREATE|os.O_APPEND|os.O_WRONLY, os.ModeAppend|0666)
+		var err error
+		file, err = os.OpenFile(fileName, os.O_CREATE|os.O_APPEND|os.O_WRONLY, os.ModeAppend|0666)
 		if err != nil {
 			panic(any(fmt.Sprintf("创建日志文件失败: %s", err.Error())))
 		}
+	}
+	if out == "console" {
+		Log.Out = os.Stdout
+	} else if out == "file" {
 		Log.Out = file
+	} else if out == "file+console" {
+		// 将 stdout 和文件组合成一个多路 Writer
+		mw := io.MultiWriter(os.Stdout, file)
+		Log.Out = mw
 	}
 
 	return Log
